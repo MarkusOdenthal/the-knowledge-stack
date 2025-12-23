@@ -1,0 +1,7 @@
+{
+  "name": "hetzner-vps",
+  "description": "Provision Hetzner Cloud VPS instances with Claude Code pre-installed",
+  "author": {
+    "name": "Markus Odenthal"
+  }
+}

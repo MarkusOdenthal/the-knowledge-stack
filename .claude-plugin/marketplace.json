@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "the-knowledge-stack",
+  "description": "Claude Code plugins from The Knowledge Stack. Tools for developers who ship.",
+  "owner": {
+    "name": "Markus Odenthal"
+  },
+  "plugins": [
+    {
+      "name": "hetzner-vps",
+      "description": "Provision Hetzner Cloud VPS instances with Claude Code pre-installed",
+      "version": "1.0.0",
+      "author": {
+        "name": "Markus Odenthal"
+      },
+      "source": "./hetzner-vps",
+      "category": "infrastructure"
+    }
+  ]
+}
