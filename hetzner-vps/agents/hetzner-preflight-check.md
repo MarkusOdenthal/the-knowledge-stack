@@ -1,6 +1,49 @@
 ---
 name: hetzner-preflight-check
-description: Use this agent when you need to verify Hetzner Cloud CLI setup, check authentication status, gather available infrastructure options, or inspect current server inventory before provisioning new resources. This agent dynamically queries the Hetzner API for real-time pricing and availability data.\n\nExamples:\n\n<example>\nContext: User wants to deploy a new server on Hetzner Cloud\nuser: "I want to spin up a new server on Hetzner"\nassistant: "Before we provision a new server, let me verify your Hetzner Cloud setup and check available options."\n<commentary>\nSince the user wants to deploy infrastructure, use the hetzner-preflight-check agent to verify CLI setup, authentication, and gather available server types with current pricing before proceeding with provisioning.\n</commentary>\nassistant: "I'll use the hetzner-preflight-check agent to verify your environment and show you available options."\n</example>\n\n<example>\nContext: User is troubleshooting Hetzner CLI issues\nuser: "My hcloud commands aren't working, can you help?"\nassistant: "Let me run a comprehensive check of your Hetzner Cloud CLI setup to identify the issue."\n<commentary>\nSince the user is having CLI issues, use the hetzner-preflight-check agent to systematically verify each component of the setup and identify where the problem lies.\n</commentary>\nassistant: "I'll launch the hetzner-preflight-check agent to diagnose your setup."\n</example>\n\n<example>\nContext: User asks about Hetzner server pricing\nuser: "What are the current prices for Hetzner servers?"\nassistant: "I'll query the Hetzner API directly to get you the latest pricing information."\n<commentary>\nSince the user wants pricing info, use the hetzner-preflight-check agent to fetch real-time pricing data from the Hetzner API rather than providing potentially outdated static information.\n</commentary>\nassistant: "Let me use the hetzner-preflight-check agent to fetch current pricing from the Hetzner API."\n</example>\n\n<example>\nContext: User wants to see their existing Hetzner infrastructure\nuser: "What servers do I have running on Hetzner?"\nassistant: "I'll check your current Hetzner infrastructure and provide a summary."\n<commentary>\nSince the user wants to see their existing servers, use the hetzner-preflight-check agent which includes infrastructure inventory as part of its verification steps.\n</commentary>\nassistant: "I'll run the hetzner-preflight-check agent to show your current server inventory."\n</example>
+description: Use this agent when you need to verify Hetzner Cloud CLI setup, check authentication status, gather available infrastructure options, or inspect current server inventory before provisioning new resources. This agent dynamically queries the Hetzner API for real-time pricing and availability data.
+
+Examples:
+
+<example>
+Context: User wants to deploy a new server on Hetzner Cloud
+user: "I want to spin up a new server on Hetzner"
+assistant: "Before we provision a new server, let me verify your Hetzner Cloud setup and check available options."
+<commentary>
+Since the user wants to deploy infrastructure, use the hetzner-preflight-check agent to verify CLI setup, authentication, and gather available server types with current pricing before proceeding with provisioning.
+</commentary>
+assistant: "I'll use the hetzner-preflight-check agent to verify your environment and show you available options."
+</example>
+
+<example>
+Context: User is troubleshooting Hetzner CLI issues
+user: "My hcloud commands aren't working, can you help?"
+assistant: "Let me run a comprehensive check of your Hetzner Cloud CLI setup to identify the issue."
+<commentary>
+Since the user is having CLI issues, use the hetzner-preflight-check agent to systematically verify each component of the setup and identify where the problem lies.
+</commentary>
+assistant: "I'll launch the hetzner-preflight-check agent to diagnose your setup."
+</example>
+
+<example>
+Context: User asks about Hetzner server pricing
+user: "What are the current prices for Hetzner servers?"
+assistant: "I'll query the Hetzner API directly to get you the latest pricing information."
+<commentary>
+Since the user wants pricing info, use the hetzner-preflight-check agent to fetch real-time pricing data from the Hetzner API rather than providing potentially outdated static information.
+</commentary>
+assistant: "Let me use the hetzner-preflight-check agent to fetch current pricing from the Hetzner API."
+</example>
+
+<example>
+Context: User wants to see their existing Hetzner infrastructure
+user: "What servers do I have running on Hetzner?"
+assistant: "I'll check your current Hetzner infrastructure and provide a summary."
+<commentary>
+Since the user wants to see their existing servers, use the hetzner-preflight-check agent which includes infrastructure inventory as part of its verification steps.
+</commentary>
+assistant: "I'll run the hetzner-preflight-check agent to show your current server inventory."
+</example>
+
 model: sonnet
 color: purple
 ---
@@ -92,7 +135,7 @@ hcloud server-type list -o columns=name,cores,memory,disk
 And note that jq should be installed for pricing data.
 
 ### Step 7: Check Existing Servers
-Run `hcloud server list -o columns=name,status,ipv4,server_type`
+Run `hcloud server list -o columns=name,status,ipv4,type`
 
 This helps avoid naming conflicts and shows current infrastructure state.
 
