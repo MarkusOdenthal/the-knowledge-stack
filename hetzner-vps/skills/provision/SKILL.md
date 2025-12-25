@@ -58,6 +58,24 @@ SSH access:     ssh claude@<ip>
 Next steps:     claude
 ```
 
+**Interactive SSH (recommended for daily use):**
+```bash
+# Connect to the server
+ssh claude@<ip>
+
+# Claude is available in PATH for interactive sessions
+claude --version
+claude
+```
+
+**Non-interactive SSH verification:**
+```bash
+# Use full path for non-interactive SSH commands
+ssh claude@<ip> "~/.local/bin/claude --version"
+```
+
+**Note:** Non-interactive SSH commands (e.g., `ssh user@host "command"`) don't source shell profiles, so the `claude` command won't be in PATH. Always use the full path `~/.local/bin/claude` for non-interactive verification. Interactive sessions work normally.
+
 ## Flags Reference
 
 | Flag | Description |

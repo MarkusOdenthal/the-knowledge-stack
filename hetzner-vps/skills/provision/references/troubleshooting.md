@@ -61,7 +61,28 @@ chmod 600 /home/claude/.ssh/authorized_keys
 
 ## Claude Code Issues
 
-### Claude Code Not Found
+### Claude Code Not Found (Non-Interactive SSH)
+
+```
+ssh claude@<ip> "claude --version"
+# zsh:1: command not found: claude
+```
+
+**Cause:** Non-interactive SSH commands don't source shell profiles (`.bashrc`, `.zshrc`), so PATH is not set.
+
+**Solution:** Use the full path for non-interactive SSH commands:
+```bash
+# Correct - use full path
+ssh claude@<ip> "~/.local/bin/claude --version"
+
+# For interactive sessions, PATH works normally
+ssh claude@<ip>
+claude --version  # Works
+```
+
+**Why this happens:** When you run `ssh user@host "command"`, bash/zsh creates a non-interactive, non-login shell that skips all profile files. This is standard shell behavior, not a bug.
+
+### Claude Code Not Found (Interactive Session)
 
 ```
 claude: command not found
