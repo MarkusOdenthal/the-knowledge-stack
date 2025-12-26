@@ -40,7 +40,7 @@ Use AskUserQuestion to collect:
 Call provision.sh with explicit flags:
 
 ```bash
-scripts/provision.sh \
+${CLAUDE_PLUGIN_ROOT}/skills/provision/scripts/provision.sh \
   --name <server-name> \
   --ssh-key <key-name> \
   --location <location> \
@@ -92,10 +92,10 @@ ssh claude@<ip> "~/.local/bin/claude --version"
 
 | Script | Purpose |
 |--------|---------|
-| `scripts/provision.sh` | Create VPS with Claude Code |
-| `scripts/status.sh` | Check VPS health |
-| `scripts/ssh-command.sh` | Execute remote commands |
-| `scripts/inject-secret.sh` | Inject other secrets (databases, APIs) |
+| `${CLAUDE_PLUGIN_ROOT}/skills/provision/scripts/provision.sh` | Create VPS with Claude Code |
+| `${CLAUDE_PLUGIN_ROOT}/skills/provision/scripts/status.sh` | Check VPS health |
+| `${CLAUDE_PLUGIN_ROOT}/skills/provision/scripts/ssh-command.sh` | Execute remote commands |
+| `${CLAUDE_PLUGIN_ROOT}/skills/provision/scripts/inject-secret.sh` | Inject other secrets (databases, APIs) |
 
 ## Prerequisites
 

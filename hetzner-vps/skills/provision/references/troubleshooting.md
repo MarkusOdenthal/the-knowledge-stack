@@ -223,7 +223,7 @@ ssh root@<ip> "journalctl -xe"
 
 ```bash
 hcloud server delete <name>
-./scripts/provision.sh --name <name> --ssh-key <key> --location fsn1
+${CLAUDE_PLUGIN_ROOT}/skills/provision/scripts/provision.sh --name <name> --ssh-key <key> --location fsn1
 ```
 
 ## Script Issues
@@ -232,14 +232,14 @@ hcloud server delete <name>
 
 Always pass `--location` flag when running programmatically:
 ```bash
-./scripts/provision.sh --name my-server --ssh-key my-key --location fsn1
+${CLAUDE_PLUGIN_ROOT}/skills/provision/scripts/provision.sh --name my-server --ssh-key my-key --location fsn1
 ```
 
 ### Script Hangs
 
 Script is waiting for interactive input. Pass all required flags:
 ```bash
-./scripts/provision.sh \
+${CLAUDE_PLUGIN_ROOT}/skills/provision/scripts/provision.sh \
   --name my-server \
   --ssh-key my-key \
   --location fsn1 \
